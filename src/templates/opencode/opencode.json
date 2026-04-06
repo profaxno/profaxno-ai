@@ -1,0 +1,171 @@
+{
+  "mcp": {
+    "engram": {
+      "command": ["engram", "mcp", "--tools=agent"],
+      "type": "local"
+    }
+  },
+
+  "agent": {
+    "gentleman": {
+      "mode": "primary",
+      "description": "Senior Architect mentor - helpful first, challenging when it matters",
+      "prompt": "{file:./AGENTS.md}",
+      "tools": {
+        "write": true,
+        "edit": true
+      }
+    },
+
+    "sdd-orchestrator": {
+      "mode": "primary",
+      "description": "Agent Teams Orchestrator - coordinates sub-agents, never does work inline",
+      "prompt": "{file:./AGENTS.md}\n\n{fichero:./sdd-orchestrator.md}",
+      "permission": {
+        "task": {
+          "*": "deny",
+          "sdd-*": "allow"
+        }
+      },
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "delegate": true,
+        "delegation_read": true,
+        "delegation_list": true
+      }
+    },
+
+    "sdd-init": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Bootstrap SDD context and project configuration",
+      "prompt": "{file:./prompts/sdd/sdd-init.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+
+    "sdd-explore": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Investigate codebase and think through ideas",
+      "prompt": "{file:./prompts/sdd/sdd-explore.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+
+    "sdd-propose": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Create change proposals from explorations",
+      "prompt": "{file:./prompts/sdd/sdd-propose.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+
+    "sdd-spec": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Write detailed specifications from proposals",
+      "prompt": "{file:./prompts/sdd/sdd-spec.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+
+    "sdd-design": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Create technical design from proposals",
+      "prompt": "{file:./prompts/sdd/sdd-design.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+
+    "sdd-tasks": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Break down specs and designs into implementation tasks",
+      "prompt": "{file:./prompts/sdd/sdd-tasks.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+
+    "sdd-apply": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Implement code changes from task definitions",
+      "prompt": "{file:./prompts/sdd/sdd-apply.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+
+    "sdd-verify": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Validate implementation against specs",
+      "prompt": "{file:./prompts/sdd/sdd-verify.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+
+    "sdd-archive": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Archive completed change artifacts",
+      "prompt": "{file:./prompts/sdd/sdd-archive.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+
+    "sdd-onboard": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Guide user through a complete SDD cycle",
+      "prompt": "{file:./prompts/sdd/sdd-onboard.md}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    }
+  }
+}
